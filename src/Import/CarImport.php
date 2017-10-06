@@ -21,7 +21,7 @@ class CarImport {
 	 */
 	public function getCar($url) {
 		$dom = new DOMDocument;
-		$dom->loadHTML(file_get_contents($url));
+		@$dom->loadHTML(file_get_contents($url));
 		return $this->createCar($dom);
 	}
 
@@ -44,11 +44,11 @@ class CarImport {
 			$atrributes['Model:'],
 			$atrributes['Karoserie:'],
 			$atrributes['Rok výroby:'],
-			isset($atrributes['Objem motoru:']) ? $atrributes['Objem motoru:'] : NULL,
-			isset($atrributes['Výkon:']) ? $atrributes['Výkon:'] : NULL,
+			isset($atrributes['Objem motoru:']) ? (int) $atrributes['Objem motoru:'] : NULL,
+			isset($atrributes['Výkon:']) ? (int) $atrributes['Výkon:'] : NULL,
 			$atrributes['Barva:'],
 			$atrributes['Palivo:'],
-			$atrributes['Najeto:'],
+			(int) $atrributes['Najeto:'],
 			$transmission,
 			$state,
 			(float) $price,

@@ -1,0 +1,9 @@
+{
+  "name": "krajcik/annonce",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Krajcik\\Annonce\\": "src/"
+    }
+  }
+}

@@ -90,6 +90,16 @@ class CarAdvert {
 	 */
 	protected $imageLinks = [];
 
+	/**
+	 * @var string
+	 */
+	private $phone;
+
+	/**
+	 * @var string
+	 */
+	private $description;
+
 
 	/**
 	 * Car constructor.
@@ -148,6 +158,8 @@ class CarAdvert {
 		$this->district = $district;
 		$this->imageLinks = $imageLinks;
 		$this->equipments = $equipments;
+		$this->phone = $phone;
+		$this->description = $description;
 	}
 
 	/**
@@ -246,6 +258,28 @@ class CarAdvert {
 	 */
 	public function getDistrict(): string {
 		return $this->district;
+	}
+
+
+	/**
+	 * @return string
+	 */
+	public function getDescription(): string {
+		return $this->description;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPhone(): string {
+		return $this->phone;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getImageLinks(): array {
+		return $this->imageLinks;
 	}
 
 }

@@ -4,6 +4,12 @@ namespace Krajcik\Annonce\Import\Structure;
 
 class CarAdvert {
 
+	const TYPE_NEW = 'new';
+	const TYPE_USED = 'used';
+
+	const TRANSMISSION_MANUAL = 'manual';
+	const TRANSMISSION_AUTOMATIC = 'automatic';
+
 	/**
 	 * @var string
 	 */
@@ -91,8 +97,8 @@ class CarAdvert {
 	 * @param string $model
 	 * @param string $bodywork
 	 * @param int    $madeYear
-	 * @param int    $volume
-	 * @param int    $performance
+	 * @param null|float    $volume
+	 * @param int|null    $performance
 	 * @param string $color
 	 * @param string $fuel
 	 * @param int    $km
@@ -111,8 +117,8 @@ class CarAdvert {
 		string $model,
 		string $bodywork,
 		int $madeYear,
-		int $volume,
-		int $performance,
+		int $volume = NULL,
+		int $performance = NULL,
 		string $color,
 		string $fuel,
 		int $km,
@@ -126,7 +132,6 @@ class CarAdvert {
 		array $imageLinks,
 		array $equipments
 	) {
-		throw new \Exception();
 		$this->vendor = $vendor;
 		$this->model = $model;
 		$this->bodywork = $bodywork;
@@ -174,16 +179,16 @@ class CarAdvert {
 	}
 
 	/**
-	 * @return int
+	 * @return int|null
 	 */
-	public function getVolume(): int {
+	public function getVolume() {
 		return $this->volume;
 	}
 
 	/**
-	 * @return int
+	 * @return int|null
 	 */
-	public function getPerformance(): int {
+	public function getPerformance() {
 		return $this->performance;
 	}
 

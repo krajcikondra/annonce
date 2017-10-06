@@ -1,5 +1,6 @@
 {
   "name": "krajcik/annonce",
+  "description": "Library for parse advertisement from www.annonce.cz ",
   "type": "library",
   "autoload": {
     "psr-4": {

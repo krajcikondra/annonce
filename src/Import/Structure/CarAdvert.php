@@ -56,7 +56,7 @@ class CarAdvert {
 	protected $km;
 
 	/**
-	 * @var string
+	 * @var string|null
 	 */
 	protected $transmission;
 
@@ -112,7 +112,7 @@ class CarAdvert {
 	 * @param string $color
 	 * @param string $fuel
 	 * @param int    $km
-	 * @param string $transmission
+	 * @param string|null $transmission
 	 * @param string $carType
 	 * @param float  $price
 	 * @param string $region
@@ -132,7 +132,7 @@ class CarAdvert {
 		string $color,
 		string $fuel,
 		int $km,
-		string $transmission,
+		string $transmission = NULL,
 		string $carType,
 		float $price,
 		string $region,
@@ -226,9 +226,9 @@ class CarAdvert {
 	}
 
 	/**
-	 * @return string
+	 * @return string|null
 	 */
-	public function getTransmission(): string {
+	public function getTransmission() {
 		return $this->transmission;
 	}
 

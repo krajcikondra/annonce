@@ -37,8 +37,12 @@ class CarImport {
 		$price = preg_replace('/\s+/u', '', $price);
 		$price = preg_replace('/\s+/','',$price );
 		$state = $atrributes['Nové / ojeté:'] === 'ojeté' ? CarAdvert::TYPE_USED : CarAdvert::TYPE_NEW;
-		$transmission = $atrributes['Převodovka:'];
-		$transmission = $transmission === 'manuální' ? CarAdvert::TRANSMISSION_MANUAL : CarAdvert::TRANSMISSION_AUTOMATIC;
+		if (isset($atrributes['Převodovka:'])) {
+            $transmission = $atrributes['Převodovka:'];
+            $transmission = $transmission === 'manuální' ? CarAdvert::TRANSMISSION_MANUAL : CarAdvert::TRANSMISSION_AUTOMATIC;
+        } else {
+		    $transmission = NULL;
+        }
 		$car = new CarAdvert(
 			$atrributes['Značka:'],
 			$atrributes['Model:'],
